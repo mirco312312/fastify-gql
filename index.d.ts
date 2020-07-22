@@ -125,6 +125,7 @@ declare namespace fastifyGQL {
      */
     subscription?: boolean | {
       emitter?: object,
+      keepAlive?: number,
       verifyClient?: (
         info: object,
         next: (result: boolean) => void
