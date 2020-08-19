@@ -183,6 +183,7 @@ export interface FastifyGQLCommonOptions {
     | boolean
     | {
         emitter?: object;
+        keepAlive?: number,
         verifyClient?: (
           info: { origin: string; secure: boolean; req: IncomingMessage }, 
           next: (result: boolean, code?: number, message?: string, headers?: OutgoingHttpHeaders) => void

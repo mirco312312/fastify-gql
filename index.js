@@ -107,12 +107,14 @@ const plugin = fp(async function (app, opts) {
   let verifyClient
   let subscriptionContextFn
   let onConnect
+  let keepAlive
 
   if (typeof subscriptionOpts === 'object') {
     emitter = subscriptionOpts.emitter || mq()
     verifyClient = subscriptionOpts.verifyClient
     subscriptionContextFn = subscriptionOpts.context
     onConnect = subscriptionOpts.onConnect
+    keepAlive = subscriptionOpts.keepAlive
   } else if (subscriptionOpts === true) {
     emitter = mq()
   }
@@ -209,7 +211,8 @@ const plugin = fp(async function (app, opts) {
       onConnect,
       lruGatewayResolvers,
       entityResolversFactory,
-      subscriptionContextFn
+      subscriptionContextFn,
+      keepAlive
     })
   }
 
